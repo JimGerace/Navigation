@@ -1,0 +1,23 @@
+.go_back{
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+    position: fixed;
+    right: 50px;
+    bottom: 20px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all .3s;
+    border: 1px solid #eee;
+    background-color: #fff;
+    box-shadow: 0 5px 10px 0 rbga(0, 0, 0, .1);
+
+    &:hover{
+        transform: translateY(-5px);
+        background-color: #e2e8f0;
+    }
+
+    &.active{
+        display: block;
+    }
+}

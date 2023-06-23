@@ -1,0 +1,32 @@
+.nav_left{
+    color: #000;
+    font-size: 26px;
+    font-weight: bold;
+
+    .nav_title{
+        padding: 0 12px;
+        margin-bottom: 20px;
+    }
+
+    .nav_item{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: normal;
+        margin: 5px 0;
+        padding: 10px 12px;
+        border-radius: 3px;
+
+        .nav_name{
+            margin-left: 12px;
+        }
+
+        &:hover{
+            background-color: #f3f4f6;
+        }
+        &.active{
+            background-color: #f3f4f6;
+        }
+    }
+}
