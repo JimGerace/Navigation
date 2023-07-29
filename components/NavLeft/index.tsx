@@ -54,12 +54,7 @@ export default function NavLeft(props: any) {
             key={item.id}
             onClick={() => changeNavActive(item.id)}
           >
-            <Image
-              src={"/images/" + item.icon + ".png"}
-              width={20}
-              height={20}
-              alt=""
-            ></Image>
+            <Image src={item.icon} width={20} height={20} alt=""></Image>
             <span className="nav_name">{item.title}</span>
           </div>
         );
