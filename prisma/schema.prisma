@@ -6,36 +6,37 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
-model Category{
-  id            String @id @default(cuid())
-  icon          String 
-  title         String
-  rank          Int?
-  createdAt     DateTime @default(now()) @map(name: "created_at")
-  updatedAt     DateTime @default(now()) @map(name: "updated_at")
-  links         Link[]
+model Category {
+  id        String   @id @default(cuid())
+  icon      String
+  title     String
+  rank      Int?
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
+  links     Link[]
+
   @@map(name: "category")
 }
 
-
-model Link {      
-  id            String @id @default(cuid())
-  icon          String
-  url           String
-  title         String
-  description   String
-  rank          Int?
-  public        Boolean @default(true)
-  status        Int   @default(1) @db.TinyInt
-  createdAt     DateTime @default(now())  @map(name: "created_at")
-  updatedAt     DateTime @default(now())  @map(name: "updated_at")
-  cid           String
-  catagory      Category @relation(fields: [cid], references: [id])
+model Link {
+  id          String   @id @default(cuid())
+  icon        String
+  url         String
+  title       String
+  description String
+  rank        Int?
+  public      Boolean  @default(true)
+  // status        Int   @default(1) @db.TinyInt
+  status      Int      @default(1)
+  createdAt   DateTime @default(now()) @map(name: "created_at")
+  updatedAt   DateTime @default(now()) @map(name: "updated_at")
+  cid         String
+  catagory    Category @relation(fields: [cid], references: [id])
 
   @@map(name: "link")
 }
